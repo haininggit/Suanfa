@@ -27,10 +27,13 @@ import java.util.List;
  */
 public class RotateArray {
     public static void main(String[] args) {
-        int[] numbers = {3, 4, 5, 1, 2};
+        int[] numbers = {4, 4, 4, 8, 9, 1, 1, 1, 2, 2, 3, 3};
+        System.out.println(new RotateArray().minArray(numbers));
         System.out.println(new RotateArray().minArray(numbers));
     }
 
+
+    //第一种方法，比较麻烦
     public int minArray(int[] numbers) {
         int left = 0, right = numbers.length-1;
         if (numbers.length < 2){
@@ -50,6 +53,27 @@ public class RotateArray {
             }
         }
         return numbers[left];
+    }
+
+
+    //第二种方法，简单通俗易懂
+    public int minNumer(int[] arry){
+        if (arry.length < 2 && arry == null){
+            return -1;
+        }
+        int left = 0;
+        int mid = 0;
+        int right = 0;
+        while (left <= right){
+            mid = (left + right)/2;
+            if (arry[left] <= arry[mid]){
+                left = mid;
+            }
+            else if(arry[right] >= arry[mid]){
+                right = mid;
+            }
+        }
+        return arry[mid];
     }
 }
 

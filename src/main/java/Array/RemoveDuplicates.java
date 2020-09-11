@@ -20,7 +20,7 @@ package Array;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
  * 26. 删除排序数组中的重复项
- *
+ *先把数组中重复的数字都更换为Integer.MIN_VALUE，然后把Integer.MIN_VALUE往数组的后面进行移动
  */
 public class RemoveDuplicates {
     public static void main(String[] args) {
@@ -45,9 +45,9 @@ public class RemoveDuplicates {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != Integer.MIN_VALUE){
-                //如果没遇到0，则会自己跟自己换，如果遇到0了，则会把0往后放
+                //如果没遇到Integer.MIN_VALUE，则会自己跟自己换，如果遇到Integer.MIN_VALUE了，则会把Integer.MIN_VALUE往后放
                 nums[j] = nums[i];
-                //i往前移的时候，i位置上的数应该为0
+                //i往前移的时候，i位置上的数应该为Integer.MIN_VALUE
                 if (i != j){
                     nums[i] = 0;
                 }
